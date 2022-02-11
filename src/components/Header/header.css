@@ -34,6 +34,14 @@
   background-color: var(--Very-Dark-Gray);
   color: #fff;
 }
+.search-bar button:hover{
+background-color: #000;
+transition: all .3s ease;
+cursor: pointer;
+}
+.search-bar button:active{
+  box-shadow: inset -4px -6px 37px 10px rgba(255, 255, 255, 0.1);
+}
 
 @media screen and (max-width:715px){
   .Header h1{
