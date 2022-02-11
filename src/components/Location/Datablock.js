@@ -1,14 +1,13 @@
 import React from 'react';
-import './Datablock.css'
 
 
-const Datablock = () => { 
+const Datablock = ({title,data}) => { 
 
 return(
 
 <div className='Datablock'>
-<p>IP ADDRESS</p>
-<h2>192.168.1.1</h2>
+<h4>{title}</h4>
+<p>{data}</p>
 </div>
 
 )

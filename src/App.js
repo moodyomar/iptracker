@@ -6,13 +6,9 @@ import Map from './components/Map/Map';
 function App() {
   return (
     <div className="App">
-      <header>
         <Header />
-      </header>
-      <main>
         <Location />
         <Map />
-      </main>
     </div>
   );
 }
