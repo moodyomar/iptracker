@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import LocationContext from '../../context/LocationContext';
 import Datablock from './Datablock';
 import './location.css'
 
 
 const Location = () => { 
 
+  let {locationData} = useContext(LocationContext)
+  const {ip,isp,location:{timezone,region,country}} = locationData;
+
+    useEffect(() => {
+
+  },[locationData])
+
 return(
 
 <div className='Location'>
-<Datablock title={'IP ADDRESS'} data={'192.212.174.101'}/>
+<Datablock title={'IP ADDRESS'} data={ip}/>
 <hr />
-<Datablock title={'LOCATION'} data={'Brooklyn, NY 10001'}/>
+<Datablock title={'LOCATION'} data={`${region} ,${country}`}/>
 <hr />
-<Datablock title={'TIMEZONE'} data={'UTC -05:00'}/>
+<Datablock title={'TIMEZONE'} data={timezone}/>
 <hr />
-<Datablock title={'ISP'} data={'SpaceX Starlink'}/>
+<Datablock title={'ISP'} data={isp}/>
 </div>
 
 )
