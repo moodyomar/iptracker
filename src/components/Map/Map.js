@@ -18,7 +18,7 @@ const Map = () => {
 
     useEffect(() => {
       setPosition([lat,lng])
-  },[locationData,position])
+  },[locationData,position,lat,lng])
   
   const popUp = 'You are here';
 
