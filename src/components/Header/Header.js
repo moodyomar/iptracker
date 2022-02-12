@@ -12,14 +12,13 @@ const Header = () => {
 
 const handleOnClick = () => {
   if(isIPv4(searchedIP)){
-      axios.get(`https://geo.ipify.org/api/v2/country?apiKey=at_9tWzy2ELaQmMOLmipaoGZyRjoTIXB&ipAddress=${searchedIP}`)
+      axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=at_9tWzy2ELaQmMOLmipaoGZyRjoTIXB&ipAddress=${searchedIP}`)
      .then(res => addLocationData(res.data))
     .catch(err => console.log(err))
   }else{
     alert('WRONG IP !');
     
   }
-  
 }
 
 return(

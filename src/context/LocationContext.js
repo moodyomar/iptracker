@@ -7,8 +7,11 @@ export const LocationProvider = ({children}) => {
     ip:'192.212.174.101',
     location:{
       region:'Brooklyn',
-      country:'NY 10001',
-      timezone:'UTC -05:00'
+      country:'NY',
+      postalCode:'10001',
+      timezone:'UTC -05:00',
+      lat: 37.40599,
+      lng: -122.078514,
     },
     isp:'SpaceX Starlink'
   });

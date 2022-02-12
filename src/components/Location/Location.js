@@ -7,7 +7,7 @@ import './location.css'
 const Location = () => { 
 
   let {locationData} = useContext(LocationContext)
-  const {ip,isp,location:{timezone,region,country}} = locationData;
+  const {ip,isp,location:{timezone,region,country,postalCode}} = locationData;
 
     useEffect(() => {
 
@@ -18,7 +18,8 @@ return(
 <div className='Location'>
 <Datablock title={'IP ADDRESS'} data={ip}/>
 <hr />
-<Datablock title={'LOCATION'} data={`${region} ,${country}`}/>
+<Datablock title={'LOCATION'} 
+data={`${region} ,${country} ${postalCode}`}/>
 <hr />
 <Datablock title={'TIMEZONE'} data={timezone}/>
 <hr />

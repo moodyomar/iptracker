@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import {divIcon} from 'leaflet';
+import { divIcon } from 'leaflet';
 import { renderToStaticMarkup } from 'react-dom/server';
 import iconLocation from '../../assets/images/icon-location.svg'
 import './map.css'
+import LocationContext from '../../context/LocationContext';
 
 const Map = () => {
 
-const iconMarkup = renderToStaticMarkup(<img alt="map marker" src={iconLocation} />);
-    const customMarkerIcon = divIcon({
-      html: iconMarkup,
-    });
+  let { locationData } = useContext(LocationContext)
+  const { location:{lat, lng} } = locationData;
+  let [position,setPosition] = useState([lat,lng])
+  const iconMarkup = renderToStaticMarkup(<img alt="map marker" src={iconLocation} />);
+  const customMarkerIcon = divIcon({
+    html: iconMarkup,
+  });
 
-
-  const position = [32.0995328, 34.7799552]
+    useEffect(() => {
+      setPosition([lat,lng])
+  },[locationData,position])
+  
   const popUp = 'You are here';
 
   return (
@@ -25,8 +31,8 @@ const iconMarkup = renderToStaticMarkup(<img alt="map marker" src={iconLocation}
         />
         <Marker position={position} icon={customMarkerIcon}>
           <Popup>
-     {popUp}
-    </Popup> 
+            {popUp}
+          </Popup>
         </Marker>
       </MapContainer>
     </div>
